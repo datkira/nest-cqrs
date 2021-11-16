@@ -1,7 +1,7 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Person } from './entities/person';
+import { PersonEntity } from './persons/person.entity';
 import { Module } from '@nestjs/common';
-import { PersonModule } from './person/person.module';
+import { PersonModule } from './persons/person.module';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
@@ -14,7 +14,7 @@ import { ConfigModule } from '@nestjs/config';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      entities: [Person],
+      entities: [PersonEntity],
       autoLoadEntities: true,
       synchronize: true,
     }),
