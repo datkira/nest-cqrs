@@ -1,8 +1,9 @@
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { PersonEntity } from './persons/person.entity';
-import { Module } from '@nestjs/common';
-import { PersonModule } from './persons/person.module';
-import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { PersonEntity } from './entities/person.entity'
+import { Module } from '@nestjs/common'
+import { PersonModule } from './persons/person.module'
+import { ConfigModule } from '@nestjs/config'
+import { PurseEntity } from './entities/purse.entity'
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { ConfigModule } from '@nestjs/config';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      entities: [PersonEntity],
+      entities: [PersonEntity, PurseEntity],
       autoLoadEntities: true,
       synchronize: true,
     }),

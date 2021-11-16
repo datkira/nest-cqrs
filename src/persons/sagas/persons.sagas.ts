@@ -3,7 +3,7 @@ import { ofType, Saga } from '@nestjs/cqrs'
 import * as clc from 'cli-color'
 import { Observable } from 'rxjs'
 import { delay, map } from 'rxjs/operators'
-import { SavedPersonEvent } from '../events/impl/saved-person.event'
+import { CreatedPersonEvent } from '../events/impl/created-person.event'
 
 @Injectable()
 export class PersonsSagas {
@@ -11,7 +11,7 @@ export class PersonsSagas {
   savedPerson = (events$: Observable<any>): Observable<void> => {
     return events$
       .pipe(
-        ofType(SavedPersonEvent),
+        ofType(CreatedPersonEvent),
         delay(1000),
         map(event => {
           console.log(clc.redBright('Inside [SavedPersonEvent] Saga'))

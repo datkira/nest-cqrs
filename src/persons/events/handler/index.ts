@@ -1,5 +1,5 @@
-import { SavedPersonHandler } from './saved-person.handler'
+import { CreatedPersonHandler } from './created-person.handler'
 
 export const EventHandlers = [
-  SavedPersonHandler,
+  CreatedPersonHandler,
 ]

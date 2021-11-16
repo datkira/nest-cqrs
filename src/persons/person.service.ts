@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common'
 import { GetPersonsQuery } from './queries/impl/get-persons.query'
-import { SavePersonCommand } from './commands/impl/save-person.command'
+import { CreatePersonCommand } from './commands/impl/create-person.command'
 import { CommandBus, QueryBus } from '@nestjs/cqrs'
+import { CreatePersonDto } from './dto/create-person.dto'
 
 @Injectable()
 export class PersonService {
@@ -14,7 +15,7 @@ export class PersonService {
     return await this.queryBus.execute(new GetPersonsQuery())
   }
 
-  async createEmployee (newPerson) {
-    return await this.commandBus.execute(new SavePersonCommand(newPerson.name, newPerson.age))
+  async createPerson (newPerson: CreatePersonDto) {
+    return await this.commandBus.execute(new CreatePersonCommand(newPerson))
   }
 }
