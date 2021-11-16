@@ -4,6 +4,7 @@ import { Module } from '@nestjs/common'
 import { PersonModule } from './persons/person.module'
 import { ConfigModule } from '@nestjs/config'
 import { PurseEntity } from './entities/purse.entity'
+import { PurseModule } from './purse/purse.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { PurseEntity } from './entities/purse.entity'
       synchronize: true,
     }),
     PersonModule,
+    PurseModule,
   ],
 })
 export class AppModule {}

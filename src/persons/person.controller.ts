@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Post, Res } from '@nestjs/common'
+import { Body, Controller, Get, HttpCode, HttpStatus, Post, Query, Res } from '@nestjs/common'
 import { PersonService } from './person.service'
 import { CreatePersonDto } from './dto/create-person.dto'
 
@@ -11,6 +11,11 @@ export class PersonController {
   @Get('all')
   async getAll () {
     return await this.personService.getAll()
+  }
+
+  @Get()
+  async getPerson (@Query() query) {
+    return await this.personService.getPerson(query.personId)
   }
 
   @Post('add')
