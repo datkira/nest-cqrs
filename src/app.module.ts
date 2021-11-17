@@ -19,6 +19,10 @@ import { PurseModule } from './purse/purse.module';
       entities: [PersonEntity, PurseEntity],
       autoLoadEntities: true,
       synchronize: true,
+      extra: {
+        connectionLimit: 10,
+      },
+      connectTimeoutMS: 10000,
     }),
     PersonModule,
     PurseModule,
